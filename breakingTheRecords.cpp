@@ -9,19 +9,19 @@ vector<int> breakingRecords(vector<int> scores) {
     int scoreMax,scoreMin,countMax=0,countMin=0;
     scoreMax=scoreMin=scores[0];
 
-    for(int i=0;i<=scores.size();i++){
+    for(int i=1;i<scores.size();i++){
         if(scores[i]>scoreMax){
             countMax++;
             scoreMax=scores[i];
         }
-        if(scores[i]<scoreMin){
+        else if(scores[i]<scoreMin){
             countMin++;
             scoreMin=scores[i];
         }
     }
-
-    cout<<countMax<<"\t"<<countMin;
-    return scores;
+    vector<int> returnData={countMax,countMin};
+   
+    return returnData;
 }
 
 int main()
