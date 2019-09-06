@@ -4,79 +4,42 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the countApplesAndOranges function below.
-void countApplesAndOranges(int s, int t, int a, int b, vector<int> apples, vector<int> oranges) {
-    int countApple=0, countOrange=0;
-    for(int i=0;i<apples.size();i++){
-        apples[i]+=a;
-        if(apples[i]<=t && apples[i]>=s)
-          countApple++;
-    }   
-     for(int i=0;i<oranges.size();i++){
-        oranges[i]+=b;
-        if(oranges[i]<=t && oranges[i]>=s)
-          countOrange++;
-    }   
-    cout<<countApple<<endl;
-    cout<<countOrange;
+// Complete the catAndMouse function below.
+string catAndMouse(int x, int y, int z) {
+    string returnString="Mouse C";
+    
+    if(!(abs(z-x)==abs(z-y)))
+        returnString=(abs(z-x)<abs(z-y))?"Cat A":"Cat B";
+    
+    return returnString;
 }
 
 int main()
 {
-    string st_temp;
-    getline(cin, st_temp);
+    ofstream fout(getenv("OUTPUT_PATH"));
 
-    vector<string> st = split_string(st_temp);
+    int q;
+    cin >> q;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-    int s = stoi(st[0]);
+    for (int q_itr = 0; q_itr < q; q_itr++) {
+        string xyz_temp;
+        getline(cin, xyz_temp);
 
-    int t = stoi(st[1]);
+        vector<string> xyz = split_string(xyz_temp);
 
-    string ab_temp;
-    getline(cin, ab_temp);
+        int x = stoi(xyz[0]);
 
-    vector<string> ab = split_string(ab_temp);
+        int y = stoi(xyz[1]);
 
-    int a = stoi(ab[0]);
+        int z = stoi(xyz[2]);
 
-    int b = stoi(ab[1]);
+        string result = catAndMouse(x, y, z);
 
-    string mn_temp;
-    getline(cin, mn_temp);
-
-    vector<string> mn = split_string(mn_temp);
-
-    int m = stoi(mn[0]);
-
-    int n = stoi(mn[1]);
-
-    string apples_temp_temp;
-    getline(cin, apples_temp_temp);
-
-    vector<string> apples_temp = split_string(apples_temp_temp);
-
-    vector<int> apples(m);
-
-    for (int i = 0; i < m; i++) {
-        int apples_item = stoi(apples_temp[i]);
-
-        apples[i] = apples_item;
+        fout << result << "\n";
     }
 
-    string oranges_temp_temp;
-    getline(cin, oranges_temp_temp);
-
-    vector<string> oranges_temp = split_string(oranges_temp_temp);
-
-    vector<int> oranges(n);
-
-    for (int i = 0; i < n; i++) {
-        int oranges_item = stoi(oranges_temp[i]);
-
-        oranges[i] = oranges_item;
-    }
-
-    countApplesAndOranges(s, t, a, b, apples, oranges);
+    fout.close();
 
     return 0;
 }
