@@ -6,11 +6,14 @@ vector<string> split_string(string);
 
 // Complete the catAndMouse function below.
 string catAndMouse(int x, int y, int z) {
-    string returnString;
-    // if(abs(z-a)<abs(z-b)){
+    string returnString="Mouse C";
+
+    if(abs(z-x)<abs(z-y))
+        returnString="Cat A";
+
+    else if(abs(z-x)>abs(z-y))
+        returnString="Cat B";
         
-    // }
-    returnString="hello";
     return returnString;
 }
 
