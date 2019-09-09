@@ -6,21 +6,20 @@ vector<string> split_string(string);
 
 // Complete the circularArrayRotation function below.
 vector<int> circularArrayRotation(vector<int> a, int k, vector<int> queries) {
-   
+    long k2=k;
     vector<int> newArray(a.size(),0);
     vector<int> returnVector(queries.size(),0);
 
-    int aSize=a.size()-1;
-    for(int i=0;i<k;i++){
-        for(int j=0;j<aSize;j++){
-            newArray[j+1]=a[j];
+    long long int aSize=a.size();
+    
+        for(long long int j=0;j<(aSize-k2);j++){
+            newArray[j+k2]=a[j];
         }
-        newArray[0]=a[aSize];
-        a=newArray; 
-    }
-
-    for(int n=0;n<queries.size();n++){
-        returnVector[n]=a[queries[n]];
+        for(long long int i=0,m=(aSize-k2);i<k2;i++, m++){
+            newArray[i]=a[m];
+        }
+    for(long long int n=0;n<queries.size();n++){
+        returnVector[n]=newArray[queries[n]];
     }
 
 return returnVector;
