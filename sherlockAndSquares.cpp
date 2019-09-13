@@ -6,13 +6,16 @@ vector<string> split_string(string);
 
 // Complete the squares function below.
 int squares(int a, int b) {
-    float inA=sqrt(a);
-    float outA=sqrt(b);
-    int inA0=inA+1;
-    int outA0=outA;
-    cout<<inA<<" | "<<outA<<endl;
-    cout<<inA0<<" | "<<outA0<<endl;
-return outA0-inA0;
+    float startRange=sqrt(a);
+    int firstNum;
+    float endRange=sqrt(b);
+    if(startRange==(int)startRange)
+        firstNum=startRange;
+    else
+         firstNum=startRange+1;
+    int lastNum=endRange;
+    
+    return lastNum-firstNum+1;
 }
 
 int main()
