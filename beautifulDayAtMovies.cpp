@@ -1,18 +1,27 @@
 #include <bits/stdc++.h>
 #include <math.h>
 
+
+
 using namespace std;
 
 vector<string> split_string(string);
 
 // Complete the beautifulDays function below.
 int beautifulDays(int i, int j, int k) {
-    int num=21;int rem,sum;int q;int power=0,count=-1;
-    while(num>0){
-        count++;
-        rem=num/10;  //rem->1
-        // sum+=rem*pow(10,power);
-        num/=10;
+   
+    string s,s_rev;
+    int a,b,c,count=0;
+    for(int n=i;n<=j;n++){
+        s=to_string(n);
+        s_rev=s;
+        reverse(s_rev.begin(),s_rev.end());
+        a=stoi(s);
+        b=stoi(s_rev);
+        c=abs(a-b);
+        if(c%k==0){
+            count++;
+        }
     }
 return count;
 }
