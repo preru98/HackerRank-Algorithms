@@ -6,24 +6,24 @@ vector<string> split_string(string);
 
 // Complete the fairRations function below.
 int fairRations(vector<int> B) {
-    int bread_count=0,count=0;
-    for(int i=0;i<B.size();i++){
-        if(B[i]%2!=0&&i!=B.size()-1){
-            B[i]++;
-            B[i+1]++;
-            bread_count+=2;
-        }
-        if(B[i]%2!=0){
-            count++;
-        }
+    int sum=0;
+    for(int i :B){
+        sum+=i;
     }
-    if(count>0){
-        bread_count=0;
+    if(sum%2!=0){
+        return 0;
     }
-    
-    
-
-return bread_count;
+    else{
+        int bread_count=0,count=0;
+        for(int i=0;i<B.size();i++){
+            if(B[i]%2!=0&&i!=B.size()-1){
+                B[i]++;
+                B[i+1]++;
+                bread_count+=2;
+            }
+        }
+        return bread_count;
+    }
 }
 
 int main()
@@ -52,7 +52,6 @@ int main()
         fout <<"NO\n";
     else
         fout << result << "\n";
-
     fout.close();
 
     return 0;
