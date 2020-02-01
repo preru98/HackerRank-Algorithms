@@ -11,12 +11,14 @@ int fairRations(vector<int> B) {
         sum+=i;
     }
     if(sum%2!=0){
-        return 0;
+        return 1;
     }
     else{
-        int bread_count=0,count=0;
+        cout<<"In Else";
+        int bread_count=0;
         for(int i=0;i<B.size();i++){
             if(B[i]%2!=0&&i!=B.size()-1){
+                cout<<i<<" | "<<B[i];
                 B[i]++;
                 B[i+1]++;
                 bread_count+=2;
@@ -48,7 +50,7 @@ int main()
     }
 
     int result = fairRations(B);
-    if(result==0)
+    if(result==1)
         fout <<"NO\n";
     else
         fout << result << "\n";
@@ -85,3 +87,4 @@ vector<string> split_string(string input_string) {
 
     return splits;
 }
+
